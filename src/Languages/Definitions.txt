@@ -1,0 +1,1987 @@
+ABAP
+    filter remove_matches ^\*
+    extension abap
+
+AMPLE
+    filter remove_matches ^\s*//
+    extension ample
+    extension dofile
+    extension startup
+
+ANTLR Grammar
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension g
+    extension g4
+
+APL
+    filter remove_matches ^\s*⍝
+    extension apl
+    extension apla
+    extension aplc
+    extension aplf
+    extension apli
+    extension apln
+    extension aplo
+    extension dyalog
+    extension dyapp
+    extension mipage
+
+ASP
+    filter remove_matches ^\s*\47
+    extension asa
+    extension ashx
+    extension asp
+    extension axd
+
+ASP.NET
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C
+    extension asax
+    extension ascx
+    extension asmx
+    extension aspx
+    extension master
+    extension sitemap
+    extension webinfo
+
+ActionScript
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension as
+
+Ada
+    filter remove_matches ^\s*--
+    extension ada
+    extension adb
+    extension ads
+    extension pad
+
+Agda
+    filter remove_haskell_comments >filename<
+    extension agda
+    extension lagda
+
+Ant
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension build.xml
+
+Ant/XML
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension build.xml
+
+Apex Class
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+
+Apex Trigger
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension trigger
+
+Arduino Sketch
+    filter replace_regex \xa0  
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension ino
+    extension pde
+
+AsciiDoc
+    filter remove_between_general //// ////
+    filter remove_matches ^\s*\/\/
+    extension adoc
+    extension asciidoc
+
+AspectJ
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension aj
+
+Assembly
+    filter remove_matches ^\s*#
+    filter CallRegexpCommon C++
+    filter remove_matches ^\s*;
+    filter remove_matches ^\s*\@
+    filter remove_matches ^\s*\|
+    filter remove_matches ^\s*!
+    filter remove_matches ^\s*--
+    filter RemoveInline ;.*$
+    filter RemoveInline \@.*$
+    filter RemoveInline \|.*$
+    filter RemoveInline !.*$
+    filter RemoveInline #.*$
+    filter RemoveInline --.*$
+    filter remove_matches ^\*
+    extension S
+    extension a51
+    extension asm
+    extension nasm
+    extension s
+
+AutoHotkey
+    filter remove_matches ^\s*;
+    filter RemoveInline ;.*$
+    extension ahk
+    extension ahkl
+
+Blade
+    filter remove_between_general {{-- --}}
+    filter remove_html_comments
+    extension blade
+    extension blade.php
+
+Bourne Again Shell
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension bash
+
+Bourne Shell
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension sh
+
+BrightScript
+    filter remove_matches ^\s*rem
+    filter remove_matches ^\s*'
+    extension brs
+
+C
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension c
+    extension cats
+    extension ec
+    extension idc
+    extension pgc
+
+C Shell
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension csh
+    extension tcsh
+
+C#
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+
+C++
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension C
+    extension CPP
+    extension c++
+    extension cc
+    extension cpp
+    extension cxx
+    extension h++
+    extension inl
+    extension ipp
+    extension pcc
+    extension tcc
+    extension tpp
+
+C/C++ Header
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension H
+    extension h
+    extension hh
+    extension hpp
+    extension hxx
+
+CCS
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C
+    extension ccs
+
+CMake
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension CMakeLists.txt
+    extension cmake
+    extension cmake.in
+    extension CMakeLists.txt
+
+COBOL
+    filter remove_cobol_comments
+    extension CBL
+    extension COB
+    extension cbl
+    extension ccp
+    extension cob
+    extension cobol
+    extension cpy
+
+CSON
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension cson
+
+CSS
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C
+    extension css
+
+CUDA
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension cu
+    extension cuh
+
+Chapel
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension chpl
+
+Clean
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension dcl
+    extension icl
+
+Clojure
+    filter remove_matches ^\s*;
+    extension boot
+    extension cl2
+    extension clj
+    extension cljs.hl
+    extension cljscm
+    extension cljx
+    extension hic
+    extension riemann.config
+
+ClojureC
+    filter remove_matches ^\s*;
+    extension cljc
+
+ClojureScript
+    filter remove_matches ^\s*;
+    extension cljs
+
+CoffeeScript
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension _coffee
+    extension cakefile
+    extension cjsx
+    extension coffee
+    extension iced
+
+ColdFusion
+    filter remove_html_comments
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon HTML
+    extension cfm
+    extension cfml
+
+ColdFusion CFScript
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension cfc
+
+Coq
+    filter remove_between_general (* *)
+
+Crystal
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension cr
+
+Crystal Reports
+    filter remove_matches ^\s*//
+
+Cucumber
+    filter remove_matches ^\s*#
+    extension feature
+
+Cython
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter remove_matches ^\s*#
+    filter docstring_to_C
+    filter CallRegexpCommon C
+    filter RemoveInline #.*$
+    extension pxd
+    extension pxi
+    extension pyx
+
+D
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter RemoveCommentsInStrings " /+ +/
+    filter remove_between_general /+ +/
+    filter CallRegexpCommon C++
+
+DAL
+    filter remove_between_general [ ]
+    extension da
+
+DIET
+    filter remove_pug_block
+    filter remove_matches ^\s*//
+    filter RemoveInline //.*$
+    extension dt
+
+DITA
+    filter remove_html_comments
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon HTML
+    extension dita
+
+DOORS Extension Language
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension dxl
+
+DOS Batch
+    filter remove_matches ^\s*rem
+    extension BAT
+    extension BTM
+    extension CMD
+    extension bat
+    extension btm
+    extension cmd
+
+DTD
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension dtd
+
+Dart
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension dart
+
+Dockerfile
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension Dockerfile
+    extension Dockerfile.build
+    extension Dockerfile.test
+
+Drools
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension drl
+
+ECPP
+    filter remove_between_general <%doc> </%doc>
+    filter remove_between_general <# #>
+    filter CallRegexpCommon HTML
+    extension ecpp
+
+EEx
+    filter remove_between_general <%# %>
+    extension eex
+
+EJS
+    filter remove_between_general <%# %>
+    filter remove_html_comments
+    extension ejs
+
+ERB
+    filter remove_between_general <%# %>
+    extension ERB
+    extension erb
+
+Elixir
+    filter remove_matches ^\s*#
+    filter elixir_doc_to_C
+    filter CallRegexpCommon C
+    filter RemoveInline #.*$
+    extension ex
+    extension exs
+
+Elm
+    filter remove_haskell_comments >filename<
+    extension elm
+
+Embedded Crystal
+    filter remove_between_general <%# %>
+    extension ecr
+
+Erlang
+    filter remove_matches ^\s*%
+    filter RemoveInline %.*$
+    extension app.src
+    extension emakefile
+    extension erl
+    extension hrl
+    extension rebar.config
+    extension rebar.config.lock
+    extension rebar.lock
+    extension xrl
+    extension yrl
+
+Expect
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension exp
+
+F#
+    filter remove_between_general (* *)
+    filter remove_matches ^\s*//
+    extension fsi
+
+F# Script
+    filter CallRegexpCommon Pascal
+    filter remove_matches ^\s*//
+    extension fsx
+
+FXML
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension fxml
+
+Fennel
+    filter remove_matches ^\s*;
+    filter RemoveInline ;.*$
+    extension fnl
+
+Fish Shell
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension fish
+
+Focus
+    filter remove_matches ^\s*\-\*
+    extension focexec
+
+Forth
+    filter remove_matches ^\s*\\.*$
+    filter Forth_paren_to_C
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    filter RemoveInline \\.*$
+    extension 4th
+    extension e4
+    extension f83
+    extension fb
+    extension forth
+    extension fpm
+    extension fr
+    extension frt
+    extension ft
+    extension fth
+    extension rx
+
+Fortran 77
+    filter remove_f77_comments
+    filter RemoveInline \!.*$
+    extension F
+    extension F77
+    extension FOR
+    extension FTN
+    extension f77
+    extension ftn
+    extension pfo
+
+Fortran 90
+    filter remove_f77_comments
+    filter remove_f90_comments
+    filter RemoveInline \!.*$
+    extension F90
+    extension f90
+
+Fortran 95
+    filter remove_f77_comments
+    filter remove_f90_comments
+    filter RemoveInline \!.*$
+    extension F95
+    extension f95
+
+Freemarker Template
+    filter remove_between_general <#-- -->
+    extension ftl
+
+GDScript
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension gd
+
+GLSL
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension comp
+    extension fp
+    extension frag
+    extension frg
+    extension fsh
+    extension fshader
+    extension geo
+    extension geom
+    extension glsl
+    extension glslv
+    extension gshader
+    extension tesc
+    extension tese
+    extension vert
+    extension vrx
+    extension vsh
+    extension vshader
+
+Gencat NLS
+    filter remove_matches ^\$ .*$
+    extension msg
+
+Glade
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension glade
+
+Go
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    filter RemoveInline //.*$
+    extension go
+
+Gradle
+    filter RemoveInline //.*$
+    filter replace_between_regex (["'])(.*?/)(\*.*?)\g1 (.*?) "$1$2$1 + $1$3$1$4"
+    filter CallRegexpCommon C++
+    extension gradle
+    extension gradle.kts
+
+Grails
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    filter remove_jsp_comments
+    filter add_newlines
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension gsp
+
+GraphQL
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension gql
+    extension graphql
+    extension graphqls
+
+Groovy
+    filter RemoveInline //.*$
+    filter replace_between_regex (["'])(.*?/)(\*.*?)\g1 (.*?) "$1$2$1 + $1$3$1$4"
+    filter CallRegexpCommon C++
+    extension gant
+    extension groovy
+    extension grt
+    extension gtpl
+    extension gvy
+    extension jenkinsfile
+
+HCL
+    filter remove_matches ^\s*#
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension hcl
+    extension nomad
+    extension tf
+    extension tfvars
+
+HLSL
+    filter RemoveInline //.*$
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension cg
+    extension cginc
+    extension fxh
+    extension hlsl
+    extension hlsli
+    extension shader
+
+HTML
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension htm
+    extension html
+    extension html.hl
+    extension xht
+
+Haml
+    filter remove_haml_block
+    filter remove_html_comments
+    filter remove_matches ^\s*/\s*\S+
+    filter remove_matches ^\s*-#\s*\S+
+    extension haml
+    extension haml.deface
+
+Handlebars
+    filter remove_between_general {{!-- --}}
+    filter remove_between_general {{! }}
+    filter remove_html_comments
+    extension handlebars
+    extension hbs
+
+Harbour
+    filter remove_matches ^\s*\&\&
+    filter remove_matches ^\s*\*
+    filter remove_matches ^\s*NOTE
+    filter remove_matches ^\s*note
+    filter remove_matches ^\s*Note
+    filter RemoveInline //.*$
+    filter RemoveInline \&\&.*$
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension hb
+
+Haskell
+    filter remove_haskell_comments >filename<
+    extension hs
+    extension hsc
+    extension lhs
+
+Haxe
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension hx
+    extension hxsl
+
+Hoon
+    filter remove_matches ^\s*:[:><]
+    filter RemoveInline :[:><].*$
+    extension hoon
+
+IDL
+    filter remove_matches ^\s*;
+    extension dlm
+    extension idl
+
+INI
+    filter remove_matches ^\s*;
+    extension buildozer.spec
+    extension ini
+    extension lektorproject
+    extension prefs
+
+IPL
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension ipl
+
+Idris
+    filter remove_haskell_comments >filename<
+    filter remove_matches ^\s*\|{3}
+    extension idr
+
+Igor Pro
+    filter remove_matches ^\s*//
+    filter RemoveInline //.*$
+    extension ipf
+
+Imba
+    filter remove_matches ^\s*#\s
+    filter RemoveInline #\s.*$
+    filter remove_between_regex ### ###
+    extension imba
+
+InstallShield
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension ism
+
+JCL
+    filter remove_jcl_comments
+    extension jcl
+
+JSON
+    filter remove_matches ^\s*$
+    extension arcconfig
+    extension avsc
+    extension composer.lock
+    extension geojson
+    extension gltf
+    extension har
+    extension htmlhintrc
+    extension json
+    extension json-tmlanguage
+    extension jsonl
+    extension mcmeta
+    extension mcmod.info
+    extension tern-config
+    extension tern-project
+    extension tfstate
+    extension tfstate.backup
+    extension topojson
+    extension watchmanconfig
+    extension webapp
+    extension webmanifest
+    extension yyp
+
+JSON5
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension json5
+
+JSP
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    filter remove_jsp_comments
+    filter remove_matches ^\s*//
+    filter add_newlines
+    filter CallRegexpCommon C
+    extension jsp
+    extension jspf
+
+JSX
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension jsx
+
+Jam
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension Jamfile
+    extension Jamrules
+
+Java
+    filter replace_regex \\$  
+    filter replace_between_regex (["'])(.*?/\*)\g1 (.*?) "xx"
+    filter replace_between_regex (["'])(.*?\*/)\g1 (.*?) "xx"
+    filter CallRegexpCommon C++
+    extension java
+
+JavaScript
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension _js
+    extension bones
+    extension es6
+    extension jake
+    extension jakefile
+    extension js
+    extension jsb
+    extension jscad
+    extension jsfl
+    extension jsm
+    extension jss
+    extension mjs
+    extension njs
+    extension pac
+    extension sjs
+    extension ssjs
+    extension xsjs
+    extension xsjslib
+
+JavaServer Faces
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension jsf
+
+Julia
+    filter remove_between_general #= =#
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+
+Jupyter Notebook
+    filter jupyter_nb
+    filter remove_matches ^\s*$
+    extension ipynb
+
+Kermit
+    filter remove_matches ^\s*#
+    filter remove_matches ^\s*;
+    filter RemoveInline #.*$
+    extension ksc
+
+Korn Shell
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension ksh
+
+Kotlin
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension kt
+    extension ktm
+    extension kts
+
+LESS
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension less
+
+LFE
+    filter remove_matches ^\s*;
+    filter remove_between_general #| |#
+    extension lfe
+
+Lean
+    filter remove_between_general /- -/
+    filter remove_matches ^\s*--
+    filter RemoveInline --.*$
+    extension hlean
+    extension lean
+
+Lisp
+    filter remove_matches ^\s*;
+    filter remove_between_general #| |#
+    extension asd
+    extension el
+    extension lisp
+    extension lsp
+
+Literate Idris
+    filter remove_matches ^[^>]
+    extension lidr
+
+LiveLink OScript
+    filter remove_matches ^\s*//
+    extension oscript
+
+Logtalk
+    filter remove_matches ^\s*\%
+    filter CallRegexpCommon C
+    filter RemoveInline (//|\%).*$
+    extension lgt
+    extension logtalk
+
+Lua
+    filter remove_between_general --[=====[ ]=====]
+    filter remove_between_general --[====[ ]====]
+    filter remove_between_general --[===[ ]===]
+    filter remove_between_general --[==[ ]==]
+    filter remove_between_general --[=[ ]=]
+    filter remove_between_general --[[ ]]
+    filter remove_matches ^\s*\-\-
+    extension lua
+    extension nse
+    extension p8
+    extension pd_lua
+    extension rbxs
+    extension wlua
+
+MATLAB
+    filter remove_matches ^\s*%
+    filter RemoveInline %.*$
+
+MSBuild script
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension csproj
+    extension vbproj
+    extension vcproj
+    extension wdproj
+    extension wixproj
+
+MUMPS
+    filter remove_matches ^\s*;
+    extension mps
+
+MXML
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    filter remove_matches ^\s*//
+    filter add_newlines
+    filter CallRegexpCommon C
+    extension mxml
+
+Mako
+    filter remove_matches ##.*$
+    extension mako
+    extension mao
+
+Markdown
+    filter remove_between_regex \[(comment|\/\/)?\]\s*:?\s*(<\s*>|#)?\s*\(.*? .*?\)
+    extension contents.lr
+    extension markdown
+    extension md
+    extension mdown
+    extension mdwn
+    extension mdx
+    extension mkd
+    extension mkdn
+    extension mkdown
+    extension ronn
+    extension workbook
+
+Mathematica
+    filter remove_between_general (* *)
+    extension cdf
+    extension ma
+    extension mathematica
+    extension mt
+    extension nbp
+    extension wl
+    extension wlt
+
+Maven
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension pom
+    extension pom.xml
+
+Maven/XML
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension pom.xml
+
+Mercury
+    filter RemoveInline %.*$
+    filter remove_matches ^\s*%
+
+Modula3
+    filter CallRegexpCommon Pascal
+    extension i3
+    extension ig
+    extension m3
+    extension mg
+
+Mustache
+    filter remove_between_general {{! }}
+    extension mustache
+
+NASTRAN DMAP
+    filter remove_matches ^\s*\$
+    filter RemoveInline \$.*$
+    extension dmap
+
+NAnt script
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension build
+
+Nemerle
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension n
+
+Nim
+    filter remove_between_general #[ ]#
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension nim
+    extension nim.cfg
+    extension nimble
+    extension nimrod
+    extension nims
+
+Nix
+    filter CallRegexpCommon C
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension nix
+
+OCaml
+    filter remove_OCaml_comments
+    extension eliom
+    extension eliomi
+    extension ml
+    extension ml4
+    extension mli
+    extension mll
+    extension mly
+
+Objective C
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+
+Objective C++
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension mm
+
+Octave
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+
+OpenCL
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+
+Oracle Forms
+    filter CallRegexpCommon C
+    extension fmt
+
+Oracle PL/SQL
+    filter CallRegexpCommon PL/SQL
+    extension bod
+    extension fnc
+    extension prc
+    extension spc
+    extension trg
+
+Oracle Reports
+    filter CallRegexpCommon C
+    extension rex
+
+PHP
+    filter remove_matches ^\s*#
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    filter RemoveInline #.*$
+    extension aw
+    extension ctp
+    extension phakefile
+    extension php
+    extension php3
+    extension php4
+    extension php5
+    extension php_cs
+    extension php_cs.dist
+    extension phps
+    extension phpt
+    extension phtml
+
+PL/I
+    filter CallRegexpCommon C
+    extension pl1
+
+PL/M
+    filter CallRegexpCommon C
+    extension lit
+    extension plm
+
+PO File
+    filter remove_matches ^\s*#[^,]
+    extension po
+
+Pascal
+    filter remove_between_regex \{[^$] }
+    filter remove_between_general (* *)
+    filter remove_matches ^\s*//
+    extension dfm
+    extension dpr
+    extension lpr
+    extension p
+    extension pas
+    extension pascal
+
+Patran Command Language
+    filter remove_matches ^\s*#
+    filter remove_matches ^\s*\$#
+    filter CallRegexpCommon C
+    extension pcl
+    extension ses
+
+Perl
+    filter remove_below ^__(END|DATA)__
+    filter remove_matches ^\s*#
+    filter remove_below_above ^=head1 ^=cut
+    filter RemoveInline #.*$
+    extension ack
+    extension al
+    extension cpanfile
+    extension makefile.pl
+    extension perl
+    extension ph
+    extension plh
+    extension plx
+    extension pm
+    extension pm6
+    extension psgi
+    extension rexfile
+
+Pig Latin
+    filter remove_matches ^\s*--
+    filter RemoveInline --.*$
+    filter CallRegexpCommon C
+    extension pig
+
+PowerBuilder
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension pbt
+    extension sra
+    extension srf
+    extension srm
+    extension srs
+    extension sru
+    extension srw
+
+PowerShell
+    filter powershell_to_C
+    filter CallRegexpCommon C
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension ps1
+    extension psd1
+    extension psm1
+
+ProGuard
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+
+Prolog
+    filter remove_matches ^\s*\%
+    filter CallRegexpCommon C
+    filter RemoveInline (//|\%).*$
+    extension P
+    extension prolog
+    extension yap
+
+Protocol Buffers
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension proto
+
+Pug
+    filter remove_pug_block
+    filter remove_matches ^\s*//
+    filter RemoveInline //.*$
+    extension jade
+    extension pug
+
+Puppet
+    filter remove_matches ^\s*#
+    filter CallRegexpCommon C
+    filter RemoveInline #.*$
+
+PureScript
+    filter remove_matches ^\s*--
+    filter remove_between_general {- -}
+    filter RemoveInline --.*$
+    extension purs
+
+Python
+    filter remove_matches /\*
+    filter remove_matches \*/
+    filter remove_matches ^\s*#
+    filter docstring_to_C
+    filter CallRegexpCommon C
+    filter RemoveInline #.*$
+    extension buck
+    extension build.bazel
+    extension gclient
+    extension gyp
+    extension gypi
+    extension lmi
+    extension py
+    extension py3
+    extension pyde
+    extension pyi
+    extension pyp
+    extension pyt
+    extension pyw
+    extension sconscript
+    extension sconstruct
+    extension snakefile
+    extension tac
+    extension workspace
+    extension wscript
+    extension wsgi
+    extension xpy
+
+QML
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    filter RemoveInline //.*$
+    extension qbs
+    extension qml
+
+Qt
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+
+Qt Linguist
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+
+Qt Project
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+
+R
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension R
+    extension expr-dist
+    extension r
+    extension rd
+    extension rprofile
+    extension rsx
+
+RAML
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension raml
+
+Racket
+    filter remove_matches ^\s*;
+    filter RemoveInline ;.*$
+    extension rkt
+    extension rktd
+    extension rktl
+    extension scrbl
+
+RapydScript
+    filter remove_matches ^\s*#
+    filter docstring_to_C
+    filter CallRegexpCommon C
+    filter RemoveInline #.*$
+    extension pyj
+
+Razor
+    filter remove_between_general @* *@
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension cshtml
+
+ReasonML
+    filter RemoveCommentsInStrings " /* */
+    filter remove_between_general /* */
+    extension re
+    extension rei
+
+Rexx
+    filter CallRegexpCommon C
+    extension pprx
+    extension rexx
+
+Rmd
+    filter reduce_to_rmd_code_blocks
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension Rmd
+
+RobotFramework
+    filter remove_matches ^\s*#
+    filter remove_matches ^\s*Comment
+    filter remove_matches ^\s*\*{3}\s+(Variables|Test\s+Cases|Settings|Keywords)\s+\*{3}
+    filter remove_matches ^\s*\[(Documentation|Tags)\]
+    filter RemoveInline #.*$
+    extension robot
+    extension tsv
+
+Ruby
+    filter remove_matches ^\s*#
+    filter remove_below_above ^=begin ^=end
+    filter RemoveInline #.*$
+    extension appraisals
+    extension berksfile
+    extension brewfile
+    extension builder
+    extension buildfile
+    extension capfile
+    extension dangerfile
+    extension deliverfile
+    extension eye
+    extension fastfile
+    extension gemfile
+    extension gemfile.lock
+    extension gemspec
+    extension god
+    extension guardfile
+    extension irbrc
+    extension jarfile
+    extension jbuilder
+    extension mavenfile
+    extension mspec
+    extension podfile
+    extension podspec
+    extension pryrc
+    extension puppetfile
+    extension rabl
+    extension rake
+    extension rb
+    extension rbuild
+    extension rbw
+    extension rbx
+    extension ru
+    extension snapfile
+    extension thor
+    extension thorfile
+    extension vagrantfile
+    extension watchr
+    extension Rakefile
+    extension rakefile
+
+Ruby HTML
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension rhtml
+
+Rust
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension rs
+    extension rs.in
+
+SAS
+    filter CallRegexpCommon C
+    filter remove_between_general * ;
+    extension sas
+
+SKILL
+    filter CallRegexpCommon C
+    filter remove_matches ^\s*;
+    extension il
+
+SKILL++
+    filter CallRegexpCommon C
+    filter remove_matches ^\s*;
+    extension ils
+
+SQL
+    filter CallRegexpCommon C
+    filter remove_matches ^\s*--
+    filter RemoveInline --.*$
+    extension SQL
+    extension cql
+    extension mysql
+    extension psql
+    extension sql
+    extension tab
+    extension udf
+    extension viw
+
+SQL Data
+    filter CallRegexpCommon C
+    filter remove_matches ^\s*--
+    filter RemoveInline --.*$
+    extension data.sql
+
+SQL Stored Procedure
+    filter CallRegexpCommon C
+    filter remove_matches ^\s*--
+    filter RemoveInline --.*$
+    extension spc.sql
+    extension spoc.sql
+    extension sproc.sql
+    extension udf.sql
+
+SVG
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension SVG
+    extension svg
+
+SWIG
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension i
+
+SaltStack
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+
+Sass
+    filter remove_matches ^\s*//
+    filter RemoveInline //.*$
+    extension sass
+    extension scss
+
+Scala
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension kojo
+    extension sbt
+    extension scala
+
+Scheme
+    filter remove_matches ^\s*;
+    filter RemoveInline ;.*$
+    extension sc
+    extension sch
+    extension scm
+    extension sld
+    extension sps
+    extension ss
+
+Slice
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension ice
+
+Slim
+    filter remove_slim_block
+    extension slim
+
+Smalltalk
+    filter CallRegexpCommon Smalltalk
+    extension st
+
+Smarty
+    filter smarty_to_C
+    filter CallRegexpCommon C
+    extension smarty
+    extension tpl
+
+Softbridge Basic
+    filter remove_above ^\s*Attribute\s+VB_Name\s+=
+    filter remove_matches ^\s*Attribute\s+
+    filter remove_matches ^\s*\47
+    extension SBL
+    extension sbl
+
+Solidity
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension sol
+
+SparForte
+    filter remove_matches ^\s*#!
+    filter remove_matches ^\s*--
+    extension sp
+
+Specman e
+    filter pre_post_fix '> <'
+    filter remove_between_general ^'> ^<'
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    filter remove_matches ^\s*--
+    filter rm_last_line
+    extension e
+
+Standard ML
+    filter remove_between_general (* *)
+    extension fun
+    extension sig
+    extension sml
+
+Starlark
+    filter remove_matches ^\s*#
+    filter docstring_to_C
+    filter CallRegexpCommon C
+    filter RemoveInline #.*$
+    extension bzl
+
+Stata
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension DO
+    extension ado
+    extension do
+    extension doh
+    extension ihlp
+    extension mata
+    extension matah
+    extension sthlp
+
+Stylus
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension styl
+
+Swift
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension swift
+
+TITAN Project File Information
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension tpd
+
+TOML
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension toml
+
+TTCN
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension ttcn
+    extension ttcn2
+    extension ttcn3
+    extension ttcnpp
+
+Tcl/Tk
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension itk
+    extension tcl
+    extension tk
+
+TeX
+    filter remove_matches ^\s*%
+    filter RemoveInline %.*$
+    extension aux
+    extension bbx
+    extension bib
+    extension bst
+    extension cbx
+    extension dtx
+    extension ins
+    extension lbx
+    extension ltx
+    extension mkii
+    extension mkiv
+    extension mkvi
+    extension sty
+    extension tex
+
+Teamcenter def
+    filter remove_matches ^\s*#
+
+Teamcenter met
+    filter CallRegexpCommon C
+    extension met
+
+Teamcenter mth
+    filter remove_matches ^\s*#
+    extension mth
+
+Thrift
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension thrift
+
+Titanium Style Sheet
+    filter remove_matches ^\s*//
+    filter RemoveInline //.*$
+    filter remove_between_regex /[^/] [^/]/
+    extension tss
+
+Twig
+    filter remove_between_general {# #}
+    extension twig
+
+TypeScript
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension tsx
+
+Unity-Prefab
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension mat
+    extension prefab
+
+VHDL
+    filter remove_matches ^\s*--
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    filter RemoveInline --.*$
+    extension VHD
+    extension VHDL
+    extension vhd
+    extension vhdl
+    extension vhf
+    extension vhi
+    extension vho
+    extension vhs
+    extension vht
+    extension vhw
+
+Vala
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension vala
+
+Vala Header
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension vapi
+
+Velocity Template Language
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    filter remove_jsp_comments
+    filter remove_matches ^\s*##
+    filter remove_between_general #** *#
+    filter add_newlines
+    extension vm
+
+Verilog-SystemVerilog
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension sv
+    extension svh
+
+Visual Basic
+    filter remove_above ^\s*Attribute\s+VB_Name\s+=
+    filter remove_matches ^\s*Attribute\s+
+    filter remove_matches ^\s*\47
+    extension VB
+    extension VBA
+    extension VBS
+    extension bas
+    extension ctl
+    extension dsr
+    extension frm
+    extension frx
+    extension vb
+    extension vba
+    extension vbhtml
+    extension vbs
+
+Visual Fox Pro
+    filter remove_matches ^\s*\*
+    filter RemoveInline \*.*$
+    filter remove_matches ^\s*&&
+    filter RemoveInline &&.*$
+    extension SCA
+    extension sca
+
+Visualforce Component
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension component
+
+Visualforce Page
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension page
+
+Vuejs Component
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension vue
+
+WebAssembly
+    filter remove_matches ^\s*;;
+    extension wast
+    extension wat
+
+WiX include
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension wxi
+
+WiX source
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension wxs
+
+WiX string localization
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension wxl
+
+Windows Message File
+    filter remove_matches ^\s*;\s*//
+    filter CallRegexpCommon C
+    filter remove_matches ^\s*;\s*$
+    extension mc
+
+Windows Module Definition
+    filter remove_matches ^\s*;
+    filter RemoveInline ;.*$
+    extension def
+
+Windows Resource File
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension rc
+    extension rc2
+
+XAML
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension xaml
+
+XHTML
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension xhtml
+
+XMI
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension XMI
+    extension xmi
+
+XML
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension XML
+    extension adml
+    extension admx
+    extension ant
+    extension app.config
+    extension axml
+    extension builds
+    extension ccproj
+    extension ccxml
+    extension classpath
+    extension clixml
+    extension cproject
+    extension cscfg
+    extension csdef
+    extension csl
+    extension ct
+    extension depproj
+    extension ditamap
+    extension ditaval
+    extension dll.config
+    extension dotsettings
+    extension filters
+    extension fsproj
+    extension gmx
+    extension grxml
+    extension iml
+    extension ivy
+    extension jelly
+    extension jsproj
+    extension kml
+    extension launch
+    extension mdpolicy
+    extension mjml
+    extension natvis
+    extension ndproj
+    extension nproj
+    extension nuget.config
+    extension nuspec
+    extension odd
+    extension osm
+    extension packages.config
+    extension pkgproj
+    extension plist
+    extension proj
+    extension project
+    extension props
+    extension ps1xml
+    extension psc1
+    extension pt
+    extension rdf
+    extension resx
+    extension rss
+    extension scxml
+    extension settings.stylecop
+    extension sfproj
+    extension shproj
+    extension srdf
+    extension storyboard
+    extension sttheme
+    extension sublime-snippet
+    extension targets
+    extension tmcommand
+    extension tml
+    extension tmlanguage
+    extension tmpreferences
+    extension tmsnippet
+    extension tmtheme
+    extension urdf
+    extension ux
+    extension vcxproj
+    extension vsixmanifest
+    extension vssettings
+    extension vstemplate
+    extension vxml
+    extension web.config
+    extension web.debug.config
+    extension web.release.config
+    extension wsf
+    extension x3d
+    extension xacro
+    extension xib
+    extension xlf
+    extension xliff
+    extension xml
+    extension xml.dist
+    extension xproj
+    extension xspec
+    extension xul
+    extension zcml
+
+XQuery
+    filter remove_between_general (: :)
+    extension xq
+    extension xql
+    extension xqm
+    extension xquery
+    extension xqy
+
+XSD
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension XSD
+    extension xsd
+
+XSLT
+    filter remove_html_comments
+    filter CallRegexpCommon HTML
+    extension XSL
+    extension XSLT
+    extension xsl
+    extension xslt
+
+Xtend
+    filter replace_between_regex (["'])(.*?/)(\*.*?)\g1 (.*?) "$1$2$1 + $1$3$1$4"
+    filter CallRegexpCommon C++
+    filter remove_matches ^\s*\x{c2ab}{3}
+    extension xtend
+
+YAML
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension clang-format
+    extension clang-tidy
+    extension gemrc
+    extension glide.lock
+    extension mir
+    extension reek
+    extension rviz
+    extension sublime-syntax
+    extension syntax
+    extension yaml
+    extension yaml-tmlanguage
+    extension yml
+    extension yml.mysql
+
+awk
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension auk
+    extension awk
+    extension gawk
+    extension mawk
+    extension nawk
+
+bc
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+
+builder
+    filter remove_matches ^\s*xml_markup.comment!
+    extension xml.builder
+
+diff
+    filter remove_matches ^#
+    filter remove_matches ^\-\-\-
+    filter remove_matches ^\+\+\+
+    filter remove_matches ^\s
+    extension diff
+    extension patch
+
+dtrace
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+
+lex
+    filter CallRegexpCommon C
+    extension l
+    extension lex
+
+liquid
+    filter remove_between_general {% comment %} {% endcomment %}
+    filter remove_html_comments
+    extension liquid
+
+m4
+    filter remove_matches ^dnl\s
+    extension ac
+    extension m4
+
+make
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension Makefile
+    extension am
+    extension makefile
+    extension mk
+    extension Gnumakefile
+
+reStructuredText
+    filter remove_between_regex ^\.\. ^[^ \n\t\r\f\.]
+    extension rest
+    extension rest.txt
+    extension rst
+    extension rst.txt
+
+sed
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension sed
+
+vim script
+    filter remove_matches ^\s*"
+    filter RemoveInline ".*$
+    extension vim
+
+xBase
+    filter remove_matches ^\s*\&\&
+    filter remove_matches ^\s*\*
+    filter remove_matches ^\s*NOTE
+    filter remove_matches ^\s*note
+    filter remove_matches ^\s*Note
+    filter RemoveInline \&\&.*$
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension prg
+    extension prw
+
+xBase Header
+    filter remove_matches ^\s*\&\&
+    filter remove_matches ^\s*\*
+    filter remove_matches ^\s*NOTE
+    filter remove_matches ^\s*note
+    filter remove_matches ^\s*Note
+    filter RemoveInline \&\&.*$
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension ch
+
+yacc
+    filter RemoveCommentsInStrings " /* */
+    filter RemoveCommentsInStrings " // 
+    filter CallRegexpCommon C++
+    extension y
+    extension yacc
+
+zsh
+    filter remove_matches ^\s*#
+    filter RemoveInline #.*$
+    extension zsh
