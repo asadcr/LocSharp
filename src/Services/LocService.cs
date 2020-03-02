@@ -5,11 +5,11 @@
     using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
-    using LocSharp.Extensions;
-    using LocSharp.Models;
-    using LocSharp.Utils;
+    using Extensions;
+    using Models;
+    using Utils;
     using MoreLinq;
-    using FileInfo = LocSharp.Models.FileInfo;
+    using FileInfo = Models.FileInfo;
 
     public static class LocService
     {
