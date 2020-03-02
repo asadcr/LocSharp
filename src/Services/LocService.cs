@@ -9,16 +9,19 @@
     using Models;
     using Utils;
     using MoreLinq;
+    using Newtonsoft.Json;
     using FileInfo = Models.FileInfo;
 
     public static class LocService
     {
         private const string Dash = "-";
 
-        private static readonly Regex DoubleQuoteString = new Regex("\".*?\"", RegexOptions.Compiled);
-        private static readonly Regex SingleQuoteString = new Regex("'.*?'", RegexOptions.Compiled);
+        private static readonly Regex DoubleQuoteRegex = new Regex("\".*?\"", RegexOptions.Compiled);
+        private static readonly Regex SingleQuoteRegex = new Regex("'.*?'", RegexOptions.Compiled);
         private static readonly Regex CommonSingleLineComment = new CommentDefinition(@"\/\/").ToRegex();
-        private static readonly Regex CommonMultiLineComment = new CommentDefinition(@"\/\*", @"\*\/").ToRegex();
+        private static readonly Regex CommonMultiLineComment = new CommentDefinition("\\/\\*", "\\*\\/").ToRegex();
+        private static readonly Lazy<IReadOnlyDictionary<string, LanguageDefinition>> LanguageDefinitionsByExtension = 
+            new Lazy<IReadOnlyDictionary<string, LanguageDefinition>>(FetchLanguageDefinitions);
 
         public static FileInfo GetFileInfo(string filePath)
         {
@@ -41,13 +44,17 @@
         {
             using (var enumerator = lines.GetEnumerator())
             {
-                var multiLineStartRegex = new Regex($"({model.MultiLineComment.StartComment}.*)", RegexOptions.Compiled);
-                var singleLineRegexes = model.SingleLineComments.Select(pattern => pattern.ToRegex()).ToArray();
-                var multiLineRegex = model.MultiLineComment.ToRegex();
+                var multiLineComment = model.CommentDefinitions.Single(a => !string.IsNullOrWhiteSpace(a.End));
+                var singleLineComments = model.CommentDefinitions.Where(a => string.IsNullOrWhiteSpace(a.End));
+
+                var multiLineStartRegex = new Regex($"({multiLineComment.Start}.*)", RegexOptions.Compiled);
+                var multiLineRegex = multiLineComment.ToRegex();
+
+                var singleLineRegexes = singleLineComments.Select(pattern => pattern.ToRegex()).ToArray();
 
                 while (enumerator.MoveNext())
                 {
-                    var currentLine = CleanLine(enumerator.Current, model.StringMarker, model.RemoveMatchesRegex);
+                    var currentLine = CleanLine(enumerator.Current);
 
                     if (string.IsNullOrWhiteSpace(currentLine))
                     {
@@ -85,7 +92,7 @@
                     while (!multiLineRegex.IsMatch(mergedLines) && enumerator.MoveNext())
                     {
                         // Always Clean the Line for accuracy.
-                        var cleaned = CleanLine(enumerator.Current, model.StringMarker, model.RemoveMatchesRegex);
+                        var cleaned = CleanLine(enumerator.Current);
                         mergedLines = string.Join(Environment.NewLine, mergedLines, cleaned);
                     }
 
@@ -114,40 +121,33 @@
         /// Replace Comments in string with empty string and Removes Matches in Strings
         /// </summary>
         /// <param name="line">code line</param>
-        /// <param name="stringMarker">string quote which language uses</param>
-        /// <param name="removeMatchesRegex">Regex to remove Matches</param>
         /// <returns>list</returns>
-        private static string CleanLine(string line, string stringMarker, string removeMatchesRegex)
+        private static string CleanLine(string line)
         {
             // Ported from CLOC https://github.com/AlDanial/cloc/blob/master/cloc#L5991
-            var cleanedLine = string.IsNullOrEmpty(stringMarker) ? line : Regex.Replace(line, $"{stringMarker}.*{stringMarker}", "\"\"");
+            var cleanedLine = line
+                .Replace(SingleQuoteRegex)
+                .Replace(DoubleQuoteRegex);
 
-            return string.IsNullOrEmpty(removeMatchesRegex) ? cleanedLine : Regex.Replace(cleanedLine, removeMatchesRegex, string.Empty);
+            //return string.IsNullOrEmpty(removeMatchesRegex) ? cleanedLine : Regex.Replace(cleanedLine, removeMatchesRegex, string.Empty);
+
+            return cleanedLine;
         }
 
-        private static LanguageDefinition GetLanguageDefinition(string filePath)
+        private static IReadOnlyDictionary<string, LanguageDefinition> FetchLanguageDefinitions()
         {
-            var file = File.ReadLines(Path.Combine(CommonUtils.BasePath, "Languages", "Definitions.txt"))
-                .Split(string.IsNullOrWhiteSpace)
-                .Select(group =>
-                {
-                    var arr = group.ToArray();
-                    var languageName = arr.First();
-                    var data = arr.Skip(1)
-                        .Select(item =>
-                        {
-                            var split = item.Trim().Split(" ", 2);
+            var definitions = File.ReadAllText(Path.Combine(CommonUtils.BasePath, "Languages", "Definitions.json"));
 
-                            return KeyValuePair.Create(split[0], split[1]);
-                        })
-                        .GroupBy(g => g.Key)
-                        .ToDictionary(g => g.Key, b => b.Select(bb => bb.Value).ToArray());
+            return JsonConvert.DeserializeObject<IList<LanguageDefinition>>(definitions)
+                .SelectMany(a => a.Extensions, (def, ext) => (Definition: def, Extension: ext))
+                .ToDictionary(a => a.Extension, b => b.Definition);
+        }
 
-                    return new LanguageDefinition(languageName, data["extension"], null, null);
-                })
-                .ToArray();
+        private static LanguageDefinition GetLanguageDefinition(string path)
+        {
+            var ext = Path.GetExtension(path).TrimStart('.');
 
-            return null;
+            return LanguageDefinitionsByExtension.Value[ext];
         }
     }
 }

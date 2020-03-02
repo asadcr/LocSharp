@@ -12,6 +12,8 @@
             var info = LocService.GetFileInfo(filePath);
 
             Console.WriteLine(info.ToString());
+
+            Console.ReadLine();
         }
     }
 }

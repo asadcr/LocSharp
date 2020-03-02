@@ -9,6 +9,16 @@
         "Name": "C#",
         "Extensions": [
             "cs"
+        ],
+        "CommentDefinitions": [
+            {
+                "Start": "\/\/",
+                "End": null
+            },
+            {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
         ]
     }
 ]

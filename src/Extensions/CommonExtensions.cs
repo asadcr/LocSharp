@@ -16,17 +16,26 @@
                 str.Split(separator ?? Environment.NewLine).Select(s => s.Trim());
         }
 
+        public static string Replace(this string str, Regex regex, string replacement = "")
+        {
+            Arg.NotNull(str, nameof(str));
+            Arg.NotNull(regex, nameof(regex));
+            Arg.NotNull(replacement, nameof(replacement));
+
+            return regex.Replace(str, replacement);
+        }
+
         public static Regex ToRegex(this CommentDefinition definition)
         {
             Arg.NotNull(definition, nameof(definition));
 
-            if (string.IsNullOrWhiteSpace(definition.EndComment))
+            if (string.IsNullOrWhiteSpace(definition.End))
             {
-                return new Regex($"({definition.StartComment}.*?$)", RegexOptions.Compiled);
+                return new Regex($"({definition.Start}.*?$)", RegexOptions.Compiled);
             }
 
             return new Regex(
-                $"({definition.StartComment}.*?{definition.EndComment})",
+                $"({definition.Start}.*?{definition.End})",
                 RegexOptions.Compiled | RegexOptions.Singleline);
         }
     }

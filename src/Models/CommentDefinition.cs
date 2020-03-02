@@ -6,17 +6,17 @@
     public class CommentDefinition
     {
         public CommentDefinition(
-            [NotNull] string startComment,
-            [CanBeNull] string endComment = null)
+            [NotNull] string start,
+            [CanBeNull] string end = null)
         {
-            StartComment = Arg.NotNull(startComment, nameof(startComment));
-            EndComment = endComment ?? string.Empty;
+            Start = Arg.NotNull(start, nameof(start));
+            End = end ?? string.Empty;
         }
 
         [NotNull]
-        public string StartComment { get; }
+        public string Start { get; }
 
         [CanBeNull]
-        public string EndComment { get; }
+        public string End { get; }
     }
 }

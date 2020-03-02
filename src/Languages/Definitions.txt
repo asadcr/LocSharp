@@ -170,11 +170,6 @@ C Shell
     extension csh
     extension tcsh
 
-C#
-    filter RemoveCommentsInStrings " /* */
-    filter RemoveCommentsInStrings " // 
-    filter CallRegexpCommon C++
-
 C++
     filter RemoveCommentsInStrings " /* */
     filter RemoveCommentsInStrings " // 
