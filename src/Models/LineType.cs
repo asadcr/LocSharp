@@ -1,4 +1,4 @@
-﻿namespace LocGuru.Models
+﻿namespace LocSharp.Models
 {
     public enum LineType
     {

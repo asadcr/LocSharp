@@ -1,23 +1,24 @@
-﻿namespace LocGuru
+﻿namespace LocSharp.Services
 {
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
-    using Extensions;
-    using Models;
+    using LocSharp.Extensions;
+    using LocSharp.Models;
+    using LocSharp.Utils;
     using MoreLinq;
-    using Utils;
-    using FileInfo = Models.FileInfo;
+    using FileInfo = LocSharp.Models.FileInfo;
 
-    public class LocService
+    public static class LocService
     {
-        private const string DoubleQuoteString = "\"";
-        private const string SingleQuoteString = "'";
         private const string Dash = "-";
-        private static readonly CommentDefinition CommonSingleLineComment = new CommentDefinition(@"\/\/");
-        private static readonly CommentDefinition CommonMultiLineComment = new CommentDefinition(@"\/\*", @"\*\/");
+
+        private static readonly Regex DoubleQuoteString = new Regex("\".*?\"", RegexOptions.Compiled);
+        private static readonly Regex SingleQuoteString = new Regex("'.*?'", RegexOptions.Compiled);
+        private static readonly Regex CommonSingleLineComment = new CommentDefinition(@"\/\/").ToRegex();
+        private static readonly Regex CommonMultiLineComment = new CommentDefinition(@"\/\*", @"\*\/").ToRegex();
 
         public static FileInfo GetFileInfo(string filePath)
         {
@@ -41,10 +42,8 @@
             using (var enumerator = lines.GetEnumerator())
             {
                 var multiLineStartRegex = new Regex($"({model.MultiLineComment.StartComment}.*)", RegexOptions.Compiled);
-                var singleLineRegexes = model.SingleLineComments.Select(pattern => new Regex($"({pattern.StartComment}.*?$)", RegexOptions.Compiled)).ToArray();
-                var multiLineRegex = new Regex(
-                    $"({model.MultiLineComment.StartComment}.*?{model.MultiLineComment.EndComment})",
-                    RegexOptions.Compiled | RegexOptions.Singleline);
+                var singleLineRegexes = model.SingleLineComments.Select(pattern => pattern.ToRegex()).ToArray();
+                var multiLineRegex = model.MultiLineComment.ToRegex();
 
                 while (enumerator.MoveNext())
                 {

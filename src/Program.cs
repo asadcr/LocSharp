@@ -1,6 +1,7 @@
-﻿namespace LocGuru
+﻿namespace LocSharp
 {
     using System;
+    using Services;
 
     public static class Program
     {

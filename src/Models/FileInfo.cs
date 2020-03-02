@@ -1,4 +1,4 @@
-﻿namespace LocGuru.Models
+﻿namespace LocSharp.Models
 {
     using Utils;
 

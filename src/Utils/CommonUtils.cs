@@ -1,4 +1,4 @@
-﻿namespace LocGuru.Utils
+﻿namespace LocSharp.Utils
 {
     using System.IO;
     using System.Reflection;

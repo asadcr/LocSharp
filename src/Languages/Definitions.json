@@ -4,5 +4,11 @@
         "Extensions": [
             "abap"
         ]
+    },
+    {
+        "Name": "C#",
+        "Extensions": [
+            "cs"
+        ]
     }
 ]

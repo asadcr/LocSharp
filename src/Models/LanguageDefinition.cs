@@ -1,4 +1,4 @@
-﻿namespace LocGuru.Models
+﻿namespace LocSharp.Models
 {
     using JetBrains.Annotations;
     using System.Collections.Generic;
