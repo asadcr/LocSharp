@@ -139,16 +139,6 @@ Blade
     extension blade
     extension blade.php
 
-Bourne Again Shell
-    filter remove_matches ^\s*#
-    filter RemoveInline #.*$
-    extension bash
-
-Bourne Shell
-    filter remove_matches ^\s*#
-    filter RemoveInline #.*$
-    extension sh
-
 BrightScript
     filter remove_matches ^\s*rem
     filter remove_matches ^\s*'
@@ -913,20 +903,6 @@ Mako
     filter remove_matches ##.*$
     extension mako
     extension mao
-
-Markdown
-    filter remove_between_regex \[(comment|\/\/)?\]\s*:?\s*(<\s*>|#)?\s*\(.*? .*?\)
-    extension contents.lr
-    extension markdown
-    extension md
-    extension mdown
-    extension mdwn
-    extension mdx
-    extension mkd
-    extension mkdn
-    extension mkdown
-    extension ronn
-    extension workbook
 
 Mathematica
     filter remove_between_general (* *)
