@@ -6,17 +6,21 @@
     public class CommentDefinition
     {
         public CommentDefinition(
-            [NotNull] string start,
+            string start,
             [CanBeNull] string end = null)
         {
             Start = Arg.NotNull(start, nameof(start));
             End = end ?? string.Empty;
         }
 
-        [NotNull]
         public string Start { get; }
 
         [CanBeNull]
         public string End { get; }
+
+        public override string ToString()
+        {
+            return $"{Start}.*?{End ?? "$"}";
+        }
     }
 }
