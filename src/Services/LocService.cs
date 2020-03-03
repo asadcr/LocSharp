@@ -18,10 +18,9 @@
 
         private static readonly Regex DoubleQuoteRegex = new Regex("\".*?\"", RegexOptions.Compiled);
         private static readonly Regex SingleQuoteRegex = new Regex("'.*?'", RegexOptions.Compiled);
-        private static readonly Regex CommonSingleLineComment = new CommentDefinition(@"\/\/").ToRegex();
-        private static readonly Regex CommonMultiLineComment = new CommentDefinition("\\/\\*", "\\*\\/").ToRegex();
-        private static readonly Lazy<IReadOnlyDictionary<string, LanguageDefinition>> LanguageDefinitionsByExtension = 
-            new Lazy<IReadOnlyDictionary<string, LanguageDefinition>>(FetchLanguageDefinitions);
+        private static readonly Regex CommonSingleLineComment = new CommentDefinition(@"\/\/").ToCompiledRegex();
+        private static readonly Regex CommonMultiLineComment = new CommentDefinition("\\/\\*", "\\*\\/").ToCompiledRegex();
+        private static readonly IReadOnlyDictionary<string, LanguageDefinition> LanguageDefinitionsByExtension = FetchLanguageDefinitions();
 
         public static FileInfo GetFileInfo(string filePath)
         {
@@ -44,13 +43,12 @@
         {
             using (var enumerator = lines.GetEnumerator())
             {
-                var multiLineComment = model.CommentDefinitions.Single(a => !string.IsNullOrWhiteSpace(a.End));
+                var multiLineComment = model.CommentDefinitions.SingleOrDefault(a => !string.IsNullOrWhiteSpace(a.End));
+                var multiLineStartRegex = multiLineComment == null ? null : new Regex($"({multiLineComment.Start}.*)", RegexOptions.Compiled);
+                var multiLineRegex = multiLineComment?.ToCompiledRegex();
+
                 var singleLineComments = model.CommentDefinitions.Where(a => string.IsNullOrWhiteSpace(a.End));
-
-                var multiLineStartRegex = new Regex($"({multiLineComment.Start}.*)", RegexOptions.Compiled);
-                var multiLineRegex = multiLineComment.ToRegex();
-
-                var singleLineRegexes = singleLineComments.Select(pattern => pattern.ToRegex()).ToArray();
+                var singleLineRegexes = singleLineComments.Select(pattern => pattern.ToCompiledRegex()).ToArray();
 
                 while (enumerator.MoveNext())
                 {
@@ -73,6 +71,13 @@
                     if (string.IsNullOrWhiteSpace(currentLine))
                     {
                         yield return LineType.Comment;
+
+                        continue;
+                    }
+
+                    if (multiLineStartRegex == null)
+                    {
+                        yield return LineType.Code;
 
                         continue;
                     }
@@ -147,7 +152,7 @@
         {
             var ext = Path.GetExtension(path).TrimStart('.');
 
-            return LanguageDefinitionsByExtension.Value[ext];
+            return LanguageDefinitionsByExtension[ext];
         }
     }
 }

@@ -25,7 +25,7 @@
             return regex.Replace(str, replacement);
         }
 
-        public static Regex ToRegex(this CommentDefinition definition)
+        public static Regex ToCompiledRegex(this CommentDefinition definition)
         {
             Arg.NotNull(definition, nameof(definition));
 
