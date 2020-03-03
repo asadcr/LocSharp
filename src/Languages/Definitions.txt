@@ -571,17 +571,6 @@ GraphQL
     extension graphql
     extension graphqls
 
-Groovy
-    filter RemoveInline //.*$
-    filter replace_between_regex (["'])(.*?/)(\*.*?)\g1 (.*?) "$1$2$1 + $1$3$1$4"
-    filter CallRegexpCommon C++
-    extension gant
-    extension groovy
-    extension grt
-    extension gtpl
-    extension gvy
-    extension jenkinsfile
-
 HCL
     filter remove_matches ^\s*#
     filter RemoveCommentsInStrings " /* */
@@ -1832,23 +1821,6 @@ Xtend
     filter CallRegexpCommon C++
     filter remove_matches ^\s*\x{c2ab}{3}
     extension xtend
-
-YAML
-    filter remove_matches ^\s*#
-    filter RemoveInline #.*$
-    extension clang-format
-    extension clang-tidy
-    extension gemrc
-    extension glide.lock
-    extension mir
-    extension reek
-    extension rviz
-    extension sublime-syntax
-    extension syntax
-    extension yaml
-    extension yaml-tmlanguage
-    extension yml
-    extension yml.mysql
 
 awk
     filter remove_matches ^\s*#

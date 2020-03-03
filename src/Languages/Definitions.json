@@ -1,5 +1,4 @@
-[
-    {
+[{
         "Name": "ABAP",
         "Extensions": [
             "abap"
@@ -10,24 +9,20 @@
         "Extensions": [
             "sh"
         ],
-        "CommentDefinitions": [
-            {
-                "Start": "#",
-                "End": null
-            }
-        ]
+        "CommentDefinitions": [{
+            "Start": "#",
+            "End": null
+        }]
     },
     {
         "Name": "Bourne Again Shell",
         "Extensions": [
             "bash"
         ],
-        "CommentDefinitions": [
-            {
-                "Start": "#",
-                "End": null
-            }
-        ]
+        "CommentDefinitions": [{
+            "Start": "#",
+            "End": null
+        }]
     },
     {
         "Name": "Markdown",
@@ -44,20 +39,59 @@
             "ronn",
             "workbook"
         ],
-        "CommentDefinitions": [
-            {
-                "Start": "\\[(comment|\\/\\/)?\\]\\s*:?\\s*(<\\s*>|#)?\\s*\\(",
-                "End": "\\)"
-            }
-        ]
+        "CommentDefinitions": [{
+            "Start": "\\[(comment|\\/\\/)?\\]\\s*:?\\s*(<\\s*>|#)?\\s*\\(",
+            "End": "\\)"
+        }]
     },
     {
         "Name": "C#",
         "Extensions": [
             "cs"
         ],
-        "CommentDefinitions": [
+        "CommentDefinitions": [{
+                "Start": "\/\/",
+                "End": null
+            },
             {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
+        ]
+    },
+    {
+        "Name": "YAML",
+        "Extensions": [
+            "clang-format",
+            "clang-tidy",
+            "gemrc",
+            "glide.lock",
+            "mir",
+            "reek",
+            "rviz",
+            "sublime-syntax",
+            "syntax",
+            "yaml",
+            "yaml-tmlanguage",
+            "yml",
+            "yml.mysql"
+        ],
+        "CommentDefinitions": [{
+            "Start": "#",
+            "End": null
+        }]
+    },
+    {
+        "Name": "Groovy",
+        "Extensions": [
+            "gant",
+            "groovy",
+            "grt",
+            "gtpl",
+            "gvy",
+            "jenkinsfile"
+        ],
+        "CommentDefinitions": [{
                 "Start": "\/\/",
                 "End": null
             },
