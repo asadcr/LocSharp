@@ -124,7 +124,8 @@
             "watchmanconfig",
             "webapp",
             "webmanifest",
-            "yyp"
+            "yyp",
+            "yy"
         ]
     },
     {
@@ -246,6 +247,80 @@
         "CommentDefinitions": [{
             "Start": "#",
             "End": null
+        }]
+    },
+    {
+        "Name": "PowerShell",
+        "Extensions": [
+            "ps1",
+            "psd1",
+            "psm1"
+        ],
+        "CommentDefinitions": [{
+                "Start": "#",
+                "End": null
+            },
+            {
+                "Start": "<#",
+                "End": "#>"
+            }
+        ]
+    },
+    {
+        "Name": "CSS",
+        "Extensions": [
+            "css"
+        ],
+        "CommentDefinitions": [{
+                "Start": "\/\/",
+                "End": null
+            },
+            {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
+        ]
+    },
+    {
+        "Name": "Java",
+        "Extensions": [
+            "java"
+        ],
+        "CommentDefinitions": [{
+                "Start": "\/\/",
+                "End": null
+            },
+            {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
+        ]
+    },
+    {
+        "Name": "R",
+        "Extensions": [
+            "expr-dist",
+            "r",
+            "rd",
+            "rprofile",
+            "rsx"
+        ],
+        "CommentDefinitions": [{
+            "Start": "#",
+            "End": null
+        }]
+    },
+    {
+        "Name": "HTML",
+        "Extensions": [
+            "htm",
+            "html",
+            "html.hl",
+            "xht"
+        ],
+        "CommentDefinitions": [{
+            "Start": "<!--",
+            "End": "-->"
         }]
     }
 ]

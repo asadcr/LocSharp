@@ -216,12 +216,6 @@ CSON
     filter RemoveInline #.*$
     extension cson
 
-CSS
-    filter RemoveCommentsInStrings " /* */
-    filter RemoveCommentsInStrings " // 
-    filter CallRegexpCommon C
-    extension css
-
 CUDA
     filter RemoveCommentsInStrings " /* */
     filter RemoveCommentsInStrings " // 
@@ -577,14 +571,6 @@ HLSL
     extension hlsli
     extension shader
 
-HTML
-    filter remove_html_comments
-    filter CallRegexpCommon HTML
-    extension htm
-    extension html
-    extension html.hl
-    extension xht
-
 Haml
     filter remove_haml_block
     filter remove_html_comments
@@ -695,13 +681,6 @@ Jam
     filter RemoveInline #.*$
     extension Jamfile
     extension Jamrules
-
-Java
-    filter replace_regex \\$  
-    filter replace_between_regex (["'])(.*?/\*)\g1 (.*?) "xx"
-    filter replace_between_regex (["'])(.*?\*/)\g1 (.*?) "xx"
-    filter CallRegexpCommon C++
-    extension java
 
 JavaScript
     filter RemoveCommentsInStrings " /* */
@@ -1047,15 +1026,6 @@ PowerBuilder
     extension sru
     extension srw
 
-PowerShell
-    filter powershell_to_C
-    filter CallRegexpCommon C
-    filter remove_matches ^\s*#
-    filter RemoveInline #.*$
-    extension ps1
-    extension psd1
-    extension psm1
-
 ProGuard
     filter remove_matches ^\s*#
     filter RemoveInline #.*$
@@ -1140,16 +1110,6 @@ Qt Linguist
 Qt Project
     filter remove_matches ^\s*#
     filter RemoveInline #.*$
-
-R
-    filter remove_matches ^\s*#
-    filter RemoveInline #.*$
-    extension R
-    extension expr-dist
-    extension r
-    extension rd
-    extension rprofile
-    extension rsx
 
 RAML
     filter remove_matches ^\s*#
