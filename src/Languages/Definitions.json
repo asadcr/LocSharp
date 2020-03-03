@@ -404,5 +404,18 @@
                 "End": "\\*\\/"
             }
         ]
+    },
+    {
+        "Name": "MSBuild script",
+        "Extensions": [
+            "csproj",
+            "vbproj",
+            "vcproj",
+            "wdproj"
+        ],
+        "CommentDefinitions": [{
+            "Start": "<!--",
+            "End": "-->"
+        }]
     }
 ]

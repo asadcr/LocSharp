@@ -9,6 +9,8 @@
 
     public static class CommonExtensions
     {
+        private static readonly IDictionary<CommentDefinition, Regex> CommentDefinitionsRegex = new Dictionary<CommentDefinition, Regex>(CommentDefinitionComparer.Instance);
+
         public static IEnumerable<string> SplitToArray(this string str, string separator = null)
         {
             return string.IsNullOrEmpty(str) ?
@@ -29,14 +31,33 @@
         {
             Arg.NotNull(definition, nameof(definition));
 
-            if (string.IsNullOrWhiteSpace(definition.End))
+            lock (CommentDefinitionsRegex)
             {
-                return new Regex($"({definition.Start}.*?$)", RegexOptions.Compiled);
-            }
+                return CommentDefinitionsRegex.GetOrAdd(definition, (def) =>
+                {
+                    if (string.IsNullOrWhiteSpace(def.End))
+                    {
+                        return new Regex($"({def.Start}.*?$)", RegexOptions.Compiled);
+                    }
 
-            return new Regex(
-                $"({definition.Start}.*?{definition.End})",
-                RegexOptions.Compiled | RegexOptions.Singleline);
+                    return new Regex(
+                        $"({def.Start}.*?{def.End})",
+                        RegexOptions.Compiled | RegexOptions.Singleline);
+                });
+            }
+        }
+
+        public static TValue GetOrAdd<TKey, TValue>(
+            this IDictionary<TKey, TValue> dict,
+            TKey key,
+            Func<TKey, TValue> valueFactory)
+        {
+            Arg.NotNull(dict, nameof(dict));
+            Arg.NotNull(valueFactory, nameof(valueFactory));
+
+            return dict.TryGetValue(key, out var value)
+                ? value
+                : dict[key] = valueFactory(key);
         }
     }
 }

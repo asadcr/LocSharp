@@ -767,15 +767,6 @@ MATLAB
     filter remove_matches ^\s*%
     filter RemoveInline %.*$
 
-MSBuild script
-    filter remove_html_comments
-    filter CallRegexpCommon HTML
-    extension csproj
-    extension vbproj
-    extension vcproj
-    extension wdproj
-    extension wixproj
-
 MUMPS
     filter remove_matches ^\s*;
     extension mps
