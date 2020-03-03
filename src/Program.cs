@@ -4,6 +4,8 @@
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
+    using System.Text;
+    using MoreLinq.Extensions;
     using Services;
 
     public static class Program
@@ -28,16 +30,34 @@
             var sw = Stopwatch.StartNew();
 
             var loc = Directory.EnumerateFiles(RepoPath, "*.*", SearchOption.AllDirectories)
-                //.AsParallel()
-                //.AsUnordered()
+                .AsParallel()
+                .AsUnordered()
                 .Where(file => !IgnoredFilePaths.Any(file.Contains))
                 .Where(file => !IgnoredFiles.Any(ig => file.EndsWith(ig, StringComparison.OrdinalIgnoreCase)))
                 .Select(LocService.GetFileInfo)
-                .Select(a => a.Blank + a.Code + a.Comment)
-                .Sum();
+                .ToArray()
+                .GroupBy(g => g.Language)
+                .ToDictionary(d => d.Key, b =>
+                {
+                    var arr = b.ToArray();
 
-            
-            Console.WriteLine($"{loc} in {sw.Elapsed.TotalSeconds.ToString()} sec");
+                    return new
+                    {
+                        Blank = arr.Sum(a => a.Blank),
+                        Comment = arr.Sum(a => a.Comment),
+                        Code = arr.Sum(a => a.Code)
+                    };
+                });
+
+            Console.WriteLine($"{loc.Count} in {sw.Elapsed.TotalSeconds.ToString()} sec");
+
+            foreach (var (language, value) in loc.OrderByDescending(o => o.Value.Blank + o.Value.Code + o.Value.Comment))
+            {
+                var someString = new StringBuilder(new string(' ', 30), 30);
+                language.ForEach((l, i) => someString[i] = l);
+
+                Console.WriteLine($"{someString}\t{value.Blank}\t\t{value.Comment}\t\t{value.Code}");
+            }
 
             Console.ReadLine();
         }
