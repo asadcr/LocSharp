@@ -15,7 +15,9 @@
 
         private static readonly string[] IgnoredFiles =
         {
-            "gitignore", "exe", "config", "sln", "DotSettings", "ruleset", "csproj", "txt"
+            "gitignore", "exe", "config", "sln", "DotSettings", "ruleset",
+            "csproj", "txt", "csv", "ico", "mod", "pfa", "map", "lock",
+            "browserslist", "png", "jpg"
         };
 
         private const string RepoPath = "C:\\CAFlowRepos\\esw-ai\\CAFlow_70e2a52d145b84149e2c846971a38646ffd19bc7";

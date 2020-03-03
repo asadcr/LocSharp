@@ -177,16 +177,6 @@ C++
     extension tcc
     extension tpp
 
-C/C++ Header
-    filter RemoveCommentsInStrings " /* */
-    filter RemoveCommentsInStrings " // 
-    filter CallRegexpCommon C++
-    extension H
-    extension h
-    extension hh
-    extension hpp
-    extension hxx
-
 CCS
     filter RemoveCommentsInStrings " /* */
     filter RemoveCommentsInStrings " // 
@@ -681,29 +671,6 @@ Jam
     filter RemoveInline #.*$
     extension Jamfile
     extension Jamrules
-
-JavaScript
-    filter RemoveCommentsInStrings " /* */
-    filter RemoveCommentsInStrings " // 
-    filter CallRegexpCommon C++
-    extension _js
-    extension bones
-    extension es6
-    extension jake
-    extension jakefile
-    extension js
-    extension jsb
-    extension jscad
-    extension jsfl
-    extension jsm
-    extension jss
-    extension mjs
-    extension njs
-    extension pac
-    extension sjs
-    extension ssjs
-    extension xsjs
-    extension xsjslib
 
 JavaServer Faces
     filter RemoveCommentsInStrings " /* */
@@ -1278,12 +1245,6 @@ SaltStack
     filter remove_matches ^\s*#
     filter RemoveInline #.*$
 
-Sass
-    filter remove_matches ^\s*//
-    filter RemoveInline //.*$
-    extension sass
-    extension scss
-
 Scala
     filter RemoveCommentsInStrings " /* */
     filter RemoveCommentsInStrings " // 
@@ -1460,12 +1421,6 @@ Titanium Style Sheet
 Twig
     filter remove_between_general {# #}
     extension twig
-
-TypeScript
-    filter RemoveCommentsInStrings " /* */
-    filter RemoveCommentsInStrings " // 
-    filter CallRegexpCommon C++
-    extension tsx
 
 Unity-Prefab
     filter remove_matches ^\s*#

@@ -322,5 +322,87 @@
             "Start": "<!--",
             "End": "-->"
         }]
+    },
+    {
+        "Name": "Sass",
+        "Extensions": [
+            "scss",
+            "sass"
+        ],
+        "CommentDefinitions": [{
+                "Start": "\/\/",
+                "End": null
+            },
+            {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
+        ]
+    },
+    {
+        "Name": "JavaScript",
+        "Extensions": [
+            "_js",
+            "bones",
+            "es6",
+            "jake",
+            "jakefile",
+            "js",
+            "jsb",
+            "jscad",
+            "jsfl",
+            "jsm",
+            "jss",
+            "mjs",
+            "njs",
+            "pac",
+            "sjs",
+            "ssjs",
+            "xsjs",
+            "xsjslib"
+        ],
+        "CommentDefinitions": [{
+                "Start": "\/\/",
+                "End": null
+            },
+            {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
+        ]
+    },
+    {
+        "Name": "TypeScript",
+        "Extensions": [
+            "ts",
+            "tsx"
+        ],
+        "CommentDefinitions": [{
+                "Start": "\/\/",
+                "End": null
+            },
+            {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
+        ]
+    },
+    {
+        "Name": "C/C++ Header",
+        "Extensions": [
+            "h",
+            "hh",
+            "hpp",
+            "hxx"
+        ],
+        "CommentDefinitions": [{
+                "Start": "\/\/",
+                "End": null
+            },
+            {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
+        ]
     }
 ]
