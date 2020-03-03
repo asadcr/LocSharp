@@ -8,7 +8,6 @@
     using Extensions;
     using Models;
     using Utils;
-    using MoreLinq;
     using Newtonsoft.Json;
     using FileInfo = Models.FileInfo;
 
@@ -18,8 +17,6 @@
 
         private static readonly Regex DoubleQuoteRegex = new Regex("\".*?\"", RegexOptions.Compiled);
         private static readonly Regex SingleQuoteRegex = new Regex("'.*?'", RegexOptions.Compiled);
-        private static readonly Regex CommonSingleLineComment = new CommentDefinition(@"\/\/").ToCompiledRegex();
-        private static readonly Regex CommonMultiLineComment = new CommentDefinition("\\/\\*", "\\*\\/").ToCompiledRegex();
         private static readonly IReadOnlyDictionary<string, LanguageDefinition> LanguageDefinitionsByExtension = FetchLanguageDefinitions();
 
         public static FileInfo GetFileInfo(string filePath)
@@ -123,20 +120,13 @@
         }
 
         /// <summary>
-        /// Replace Comments in string with empty string and Removes Matches in Strings
+        /// Replace Comments in string with empty string
         /// </summary>
         /// <param name="line">code line</param>
         /// <returns>list</returns>
         private static string CleanLine(string line)
         {
-            // Ported from CLOC https://github.com/AlDanial/cloc/blob/master/cloc#L5991
-            var cleanedLine = line
-                .Replace(SingleQuoteRegex)
-                .Replace(DoubleQuoteRegex);
-
-            //return string.IsNullOrEmpty(removeMatchesRegex) ? cleanedLine : Regex.Replace(cleanedLine, removeMatchesRegex, string.Empty);
-
-            return cleanedLine;
+            return line.Replace(SingleQuoteRegex).Replace(DoubleQuoteRegex);
         }
 
         private static IReadOnlyDictionary<string, LanguageDefinition> FetchLanguageDefinitions()
