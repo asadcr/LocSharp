@@ -6,6 +6,52 @@
         ]
     },
     {
+        "Name": "Bourne Shell",
+        "Extensions": [
+            "sh"
+        ],
+        "CommentDefinitions": [
+            {
+                "Start": "#",
+                "End": null
+            }
+        ]
+    },
+    {
+        "Name": "Bourne Again Shell",
+        "Extensions": [
+            "bash"
+        ],
+        "CommentDefinitions": [
+            {
+                "Start": "#",
+                "End": null
+            }
+        ]
+    },
+    {
+        "Name": "Markdown",
+        "Extensions": [
+            "contents.lr",
+            "markdown",
+            "md",
+            "mdown",
+            "mdwn",
+            "mdx",
+            "mkd",
+            "mkdn",
+            "mkdown",
+            "ronn",
+            "workbook"
+        ],
+        "CommentDefinitions": [
+            {
+                "Start": "\\[(comment|\\/\\/)?\\]\\s*:?\\s*(<\\s*>|#)?\\s*\\(",
+                "End": "\\)"
+            }
+        ]
+    },
+    {
         "Name": "C#",
         "Extensions": [
             "cs"
