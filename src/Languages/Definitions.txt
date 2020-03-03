@@ -340,15 +340,6 @@ DOORS Extension Language
     filter CallRegexpCommon C++
     extension dxl
 
-DOS Batch
-    filter remove_matches ^\s*rem
-    extension BAT
-    extension BTM
-    extension CMD
-    extension bat
-    extension btm
-    extension cmd
-
 DTD
     filter remove_html_comments
     filter CallRegexpCommon HTML
@@ -359,13 +350,6 @@ Dart
     filter RemoveCommentsInStrings " // 
     filter CallRegexpCommon C++
     extension dart
-
-Dockerfile
-    filter remove_matches ^\s*#
-    filter RemoveInline #.*$
-    extension Dockerfile
-    extension Dockerfile.build
-    extension Dockerfile.test
 
 Drools
     filter RemoveCommentsInStrings " /* */
@@ -689,36 +673,6 @@ InstallShield
 JCL
     filter remove_jcl_comments
     extension jcl
-
-JSON
-    filter remove_matches ^\s*$
-    extension arcconfig
-    extension avsc
-    extension composer.lock
-    extension geojson
-    extension gltf
-    extension har
-    extension htmlhintrc
-    extension json
-    extension json-tmlanguage
-    extension jsonl
-    extension mcmeta
-    extension mcmod.info
-    extension tern-config
-    extension tern-project
-    extension tfstate
-    extension tfstate.backup
-    extension topojson
-    extension watchmanconfig
-    extension webapp
-    extension webmanifest
-    extension yyp
-
-JSON5
-    filter RemoveCommentsInStrings " /* */
-    filter RemoveCommentsInStrings " // 
-    filter CallRegexpCommon C++
-    extension json5
 
 JSP
     filter remove_html_comments
@@ -1700,99 +1654,6 @@ XMI
     filter CallRegexpCommon HTML
     extension XMI
     extension xmi
-
-XML
-    filter remove_html_comments
-    filter CallRegexpCommon HTML
-    extension XML
-    extension adml
-    extension admx
-    extension ant
-    extension app.config
-    extension axml
-    extension builds
-    extension ccproj
-    extension ccxml
-    extension classpath
-    extension clixml
-    extension cproject
-    extension cscfg
-    extension csdef
-    extension csl
-    extension ct
-    extension depproj
-    extension ditamap
-    extension ditaval
-    extension dll.config
-    extension dotsettings
-    extension filters
-    extension fsproj
-    extension gmx
-    extension grxml
-    extension iml
-    extension ivy
-    extension jelly
-    extension jsproj
-    extension kml
-    extension launch
-    extension mdpolicy
-    extension mjml
-    extension natvis
-    extension ndproj
-    extension nproj
-    extension nuget.config
-    extension nuspec
-    extension odd
-    extension osm
-    extension packages.config
-    extension pkgproj
-    extension plist
-    extension proj
-    extension project
-    extension props
-    extension ps1xml
-    extension psc1
-    extension pt
-    extension rdf
-    extension resx
-    extension rss
-    extension scxml
-    extension settings.stylecop
-    extension sfproj
-    extension shproj
-    extension srdf
-    extension storyboard
-    extension sttheme
-    extension sublime-snippet
-    extension targets
-    extension tmcommand
-    extension tml
-    extension tmlanguage
-    extension tmpreferences
-    extension tmsnippet
-    extension tmtheme
-    extension urdf
-    extension ux
-    extension vcxproj
-    extension vsixmanifest
-    extension vssettings
-    extension vstemplate
-    extension vxml
-    extension web.config
-    extension web.debug.config
-    extension web.release.config
-    extension wsf
-    extension x3d
-    extension xacro
-    extension xib
-    extension xlf
-    extension xliff
-    extension xml
-    extension xml.dist
-    extension xproj
-    extension xspec
-    extension xul
-    extension zcml
 
 XQuery
     filter remove_between_general (: :)

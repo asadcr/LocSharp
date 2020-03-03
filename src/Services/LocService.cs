@@ -145,12 +145,17 @@
 
             return JsonConvert.DeserializeObject<IList<LanguageDefinition>>(definitions)
                 .SelectMany(a => a.Extensions, (def, ext) => (Definition: def, Extension: ext))
-                .ToDictionary(a => a.Extension, b => b.Definition);
+                .ToDictionary(a => a.Extension, b => b.Definition, StringComparer.OrdinalIgnoreCase);
         }
 
         private static LanguageDefinition GetLanguageDefinition(string path)
         {
             var ext = Path.GetExtension(path).TrimStart('.');
+
+            if (string.IsNullOrWhiteSpace(ext))
+            {
+                ext = CommonUtils.GetFileName(path);
+            }
 
             return LanguageDefinitionsByExtension[ext];
         }
