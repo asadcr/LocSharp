@@ -36,6 +36,14 @@
                 classification.GetValueOrDefault(LineType.Code));
         }
 
+        public static IEnumerable<LineType> GetLineClassification(string filePath)
+        {
+            var lines = File.ReadLines(filePath);
+            var definition = GetLanguageDefinition(filePath);
+
+            return GetLineClassification(lines, definition);
+        }
+
         private static IEnumerable<LineType> GetLineClassification(IEnumerable<string> lines, LanguageDefinition model)
         {
             using (var enumerator = lines.GetEnumerator())

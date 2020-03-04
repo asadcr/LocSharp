@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocGuru", "LocSharp.csproj", "{90780E26-860E-4371-8A49-F03B123442BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocSharp", "LocSharp\LocSharp.csproj", "{90780E26-860E-4371-8A49-F03B123442BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocSharp.Tests", "LocSharp.Tests\LocSharp.Tests.csproj", "{0D4DD5D0-23D9-436D-BD68-77C55EDD08CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{90780E26-860E-4371-8A49-F03B123442BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90780E26-860E-4371-8A49-F03B123442BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90780E26-860E-4371-8A49-F03B123442BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D4DD5D0-23D9-436D-BD68-77C55EDD08CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D4DD5D0-23D9-436D-BD68-77C55EDD08CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D4DD5D0-23D9-436D-BD68-77C55EDD08CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D4DD5D0-23D9-436D-BD68-77C55EDD08CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
