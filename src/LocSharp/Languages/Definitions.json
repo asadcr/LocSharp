@@ -45,6 +45,49 @@
         }]
     },
     {
+        "Name": "C",
+        "Extensions": [
+            "c",
+            "cats",
+            "ec",
+            "idc",
+            "pgc"
+        ],
+        "CommentDefinitions": [{
+                "Start": "\/\/",
+                "End": null
+            },
+            {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
+        ]
+    },
+    {
+        "Name": "C++",
+        "Extensions": [
+            "c++",
+            "cc",
+            "cpp",
+            "cxx",
+            "h++",
+            "inl",
+            "ipp",
+            "pcc",
+            "tcc",
+            "tpp"
+        ],
+        "CommentDefinitions": [{
+                "Start": "\/\/",
+                "End": null
+            },
+            {
+                "Start": "\\/\\*",
+                "End": "\\*\\/"
+            }
+        ]
+    },
+    {
         "Name": "C#",
         "Extensions": [
             "cs"

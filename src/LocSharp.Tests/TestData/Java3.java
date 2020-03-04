@@ -1,0 +1,161 @@
+package com.triplemedia.sms.alphabets.cimd2;
+
+/**
+ * Utility class for CIMD2 alphabet as defined in CIMD_Interface_Specification_SC70.pdf
+ */
+public class CIMD2Alphabet{
+	public static final char CIMD2_SPECIAL_COMBINATION_CHARACTER = '_';
+
+    public static final String COMMERCIAL_AT = "_Oa";
+    public static final String POUNDS_STERLING = "_L-";
+    public static final String YEN_SIGN = "_Y-";
+    public static final String e_WITH_GRAVE_ACCENT = "_e`";
+    public static final String e_WITH_ACUTE_ACCENT = "_e'";
+    public static final String u_WITH_GRAVE_ACCENT = "_u`";
+    public static final String i_WITH_GRAVE_ACCENT = "_i`";
+    public static final String o_WITH_GRAVE_ACCENT = "_o`";
+    public static final String C_WITH_CEDILLA = "_C,";
+    public static final String O_WITH_SLASH = "_O/";
+    public static final String o_WITH_SLASH = "_o/";
+    public static final String A_WITH_A_RING = "_A*";
+    public static final String a_WITH_A_RING = "_a*";
+    public static final String GREEK_ALPHABET_DELTA = "_gd";
+    public static final String UNDERSCORE = "_--";
+    public static final String GREEK_ALPHABET_PHI = "_gf";
+    public static final String GREEK_ALPHABET_GAMMA = "_gg";
+    public static final String GREEK_ALPHABET_LAMBDA = "_gl";
+    public static final String GREEK_ALPHABET_OMEGA = "_go";
+    public static final String GREEK_ALPHABET_PI = "_gp";
+    public static final String GREEK_ALPHABET_PSI = "_gi";
+    public static final String GREEK_ALPHABET_SIGMA = "_gs";
+    public static final String GREEK_ALPHABET_THETA = "_gt";
+    public static final String GREEK_ALPHABET_XI = "_gx";
+    public static final String RESERVED = "_XX";
+    public static final String AE_DIPHTHONG = "_AE";
+    public static final String ae_DIPHTHONG = "_ae";
+    public static final String GERMAN_DOUBLE_S = "_ss";
+    public static final String E_WITH_ACUTE_ACCENT = "_E'";
+    public static final String QUATATION_MARK = "_qq";
+    public static final String CURRENCY_SYMBOL = "_ox";
+    public static final String INVERTED_EXCLAMATION_MARK = "_!!";
+    public static final String A_WITH_DIERESIS = "_A\"";
+    public static final String O_WITH_DIERESIS = "_O\"";
+    public static final String N_WITH_TILDE = "_N~";
+    public static final String U_WITH_DIERESIS = "_U\"";
+    public static final String SECTION_MARK = "_so";
+    public static final String INVERTED_QUESTION_MARK = "_??";
+    public static final String a_WITH_DIERESIS = "_a\"";
+    public static final String o_WITH_DIERESIS = "_o\"";
+    public static final String n_WITH_TILDE = "_n~";
+    public static final String u_WITH_DIERESIS = "_u\"";
+    public static final String a_WITH_GRAVE_ACCENT = "_a`";
+
+    public static final String DOLLAR_SIGN = "$";
+    public static final String LINE_FEED = "\f";
+    public static final String CARRIAGE_RETURN = "\r";
+    public static final String SPACE = " ";
+    public static final String EXCLAMATION_MARK = "!";
+    public static final String NUMBER_SIGN = "#";
+    public static final String PERCENT_SIGN = "%";
+    public static final String AMPERSAND = "&";
+    public static final String APOSTROPHE = "'";
+    public static final String OPENING_PARENTHESIS = "(";
+    public static final String CLOSING_PARENTHESIS = ")";
+    public static final String ASTERISK = "*";
+    public static final String PLUS = "+";
+    public static final String COMMA = ",";
+    public static final String HYPHEN = "-";
+    public static final String PERIOD = ".";
+    public static final String SLASH = "/";
+    public static final String DIGIT_ZERO = "0";
+    public static final String DIGIT_ONE = "1";
+    public static final String DIGIT_TWO = "2";
+    public static final String DIGIT_THREE = "3";
+    public static final String DIGIT_FOUR = "4";
+    public static final String DIGIT_FIVE = "5";
+    public static final String DIGIT_SIX = "6";
+    public static final String DIGIT_SEVEN = "7";
+    public static final String DIGIT_EIGHT = "8";
+    public static final String DIGIT_NINE = "9";
+    public static final String COLON = ":";
+    public static final String SEMICOLON = ";";
+    public static final String LESS_THAN_SIGN = "<";
+    public static final String EQUALS_SIGN = "=";
+    public static final String GREATER_THAN_SIGN = ">";
+    public static final String QUESTION_MARK = "?";
+    public static final String CAPITAL_LETTER_A = "A";
+    public static final String CAPITAL_LETTER_B = "B";
+    public static final String CAPITAL_LETTER_C = "C";
+    public static final String CAPITAL_LETTER_D = "D";
+    public static final String CAPITAL_LETTER_E = "E";
+    public static final String CAPITAL_LETTER_F = "F";
+    public static final String CAPITAL_LETTER_G = "G";
+    public static final String CAPITAL_LETTER_H = "H";
+    public static final String CAPITAL_LETTER_I = "I";
+    public static final String CAPITAL_LETTER_J = "J";
+    public static final String CAPITAL_LETTER_K = "K";
+    public static final String CAPITAL_LETTER_L = "L";
+    public static final String CAPITAL_LETTER_M = "M";
+    public static final String CAPITAL_LETTER_N = "N";
+    public static final String CAPITAL_LETTER_O = "O";
+    public static final String CAPITAL_LETTER_P = "P";
+    public static final String CAPITAL_LETTER_Q = "Q";
+    public static final String CAPITAL_LETTER_R = "R";
+    public static final String CAPITAL_LETTER_S = "S";
+    public static final String CAPITAL_LETTER_T = "T";
+    public static final String CAPITAL_LETTER_U = "U";
+    public static final String CAPITAL_LETTER_V = "V";
+    public static final String CAPITAL_LETTER_W = "W";
+    public static final String CAPITAL_LETTER_X = "X";
+    public static final String CAPITAL_LETTER_Y = "Y";
+    public static final String CAPITAL_LETTER_Z = "Z";
+    public static final String SMALL_LETTER_a = "a";
+    public static final String SMALL_LETTER_b = "b";
+    public static final String SMALL_LETTER_c = "c";
+    public static final String SMALL_LETTER_d = "d";
+    public static final String SMALL_LETTER_e = "e";
+    public static final String SMALL_LETTER_f = "f";
+    public static final String SMALL_LETTER_g = "g";
+    public static final String SMALL_LETTER_h = "h";
+    public static final String SMALL_LETTER_i = "i";
+    public static final String SMALL_LETTER_j = "j";
+    public static final String SMALL_LETTER_k = "k";
+    public static final String SMALL_LETTER_l = "l";
+    public static final String SMALL_LETTER_m = "m";
+    public static final String SMALL_LETTER_n = "n";
+    public static final String SMALL_LETTER_o = "o";
+    public static final String SMALL_LETTER_p = "p";
+    public static final String SMALL_LETTER_q = "q";
+    public static final String SMALL_LETTER_r = "r";
+    public static final String SMALL_LETTER_s = "s";
+    public static final String SMALL_LETTER_t = "t";
+    public static final String SMALL_LETTER_u = "u";
+    public static final String SMALL_LETTER_v = "v";
+    public static final String SMALL_LETTER_w = "w";
+    public static final String SMALL_LETTER_x = "x";
+    public static final String SMALL_LETTER_y = "y";
+    public static final String SMALL_LETTER_z = "z";
+    
+    public static final String VERTICAL_BAR = "_XX_!!"; // |
+    public static final String CARET = "_XX_gl"; // ^
+    public static final String EURO = "_XXe"; // €
+    public static final String OPENING_BRACE = "_XX("; // {
+    public static final String CLOSING_BRACE = "_XX)"; // }
+    public static final String PAGE_BREAK = "_XX\f)"; 
+    public static final String OPENING_BRACKET = "_XX<"; // [
+    public static final String CLOSING_BRACKET = "_XX>"; // ]
+    public static final String TILDE = "_XX="; // ~
+    public static final String BACKSLASH = "_XX/"; // \
+    
+    public static final String VERTICAL_BAR_NO_ESC = "_!!"; // |
+    public static final String CARET_NO_ESC = "_gl"; // ^
+    public static final String EURO_NO_ESC = "e"; // €
+    public static final String OPENING_BRACE_NO_ESC = "("; // {
+    public static final String CLOSING_BRACE_NO_ESC = ")"; // }
+    public static final String PAGE_BREAK_NO_ESC = "\f"; 
+    public static final String OPENING_BRACKET_NO_ESC = "<"; // [
+    public static final String CLOSING_BRACKET_NO_ESC = ">"; // ]
+    public static final String TILDE_NO_ESC = "="; // ~
+    public static final String BACKSLASH_NO_ESC = "/"; // \
+
+}

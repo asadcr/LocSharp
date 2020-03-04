@@ -141,9 +141,10 @@
         {
             var definitions = File.ReadAllText(Path.Combine(CommonUtils.BasePath, "Languages", "Definitions.json"));
 
-            return JsonConvert.DeserializeObject<IList<LanguageDefinition>>(definitions)
-                .SelectMany(a => a.Extensions, (def, ext) => (Definition: def, Extension: ext))
-                .ToDictionary(a => a.Extension, b => b.Definition, StringComparer.OrdinalIgnoreCase);
+            var data = JsonConvert.DeserializeObject<IList<LanguageDefinition>>(definitions)
+                .SelectMany(a => a.Extensions, (def, ext) => (Definition: def, Extension: ext));
+
+            return data.ToDictionary(a => a.Extension, b => b.Definition, StringComparer.OrdinalIgnoreCase);
         }
 
         private static LanguageDefinition GetLanguageDefinition(string path)

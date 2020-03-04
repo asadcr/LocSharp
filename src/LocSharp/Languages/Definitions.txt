@@ -144,38 +144,11 @@ BrightScript
     filter remove_matches ^\s*'
     extension brs
 
-C
-    filter RemoveCommentsInStrings " /* */
-    filter RemoveCommentsInStrings " // 
-    filter CallRegexpCommon C++
-    extension c
-    extension cats
-    extension ec
-    extension idc
-    extension pgc
-
 C Shell
     filter remove_matches ^\s*#
     filter RemoveInline #.*$
     extension csh
     extension tcsh
-
-C++
-    filter RemoveCommentsInStrings " /* */
-    filter RemoveCommentsInStrings " // 
-    filter CallRegexpCommon C++
-    extension C
-    extension CPP
-    extension c++
-    extension cc
-    extension cpp
-    extension cxx
-    extension h++
-    extension inl
-    extension ipp
-    extension pcc
-    extension tcc
-    extension tpp
 
 CCS
     filter RemoveCommentsInStrings " /* */
