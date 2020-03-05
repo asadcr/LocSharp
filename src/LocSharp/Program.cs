@@ -1,12 +1,18 @@
 ﻿namespace LocSharp
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
+    using System.Runtime.InteropServices.ComTypes;
     using System.Text;
+    using Extensions;
+    using Models;
     using MoreLinq.Extensions;
     using Services;
+    using Utils;
+    using FileInfo = Models.FileInfo;
 
     public static class Program
     {
@@ -22,47 +28,112 @@
             "browserslist", "png", "jpg"
         };
 
-        private const string RepoPath = "C:\\CAFlowRepos\\esw-ai\\CAFlow_70e2a52d145b84149e2c846971a38646ffd19bc7";
-        const string FilePath = "C:\\Users\\Asad\\Documents\\Visual Studio 2017\\Projects\\CAFlow\\src\\CAFlow.Core\\Services\\CodeGraphService.cs";
+        private const string RepoPath = "C:\\Users\\Asad\\Documents\\Visual Studio 2017\\Projects\\CAFlow\\src\\CAFlow.Core.Tests\\TestData\\Fixtures\\JFlexLexer.java";
 
         public static void Main(string[] args)
         {
             var sw = Stopwatch.StartNew();
+            var resultsPerFile = GetFileInfo(RepoPath);
 
-            var loc = Directory.EnumerateFiles(RepoPath, "*.*", SearchOption.AllDirectories)
+            OutputByLanguage(resultsPerFile, sw);
+
+            Console.ReadLine();
+        }
+
+        private static void OutputByFile(ParallelQuery<FileInfo> infos, Stopwatch sw)
+        {
+            infos.Select(r => $"{r.FilePath},{r.Language},{r.Blank},{r.Comment},{r.Code}").ForAll(Console.WriteLine);
+        }
+
+        private static void OutputByLanguage(ParallelQuery<FileInfo> infos, Stopwatch sw)
+        {
+            var resultsPerLanguage = infos
+                .GroupBy(g => g.Language)
+                .Select(b =>
+                {
+                    var arr = b.ToArray();
+
+                    return new OutputModel(b.Key, arr.Length, arr.Sum(a => a.Blank), arr.Sum(a => a.Comment), arr.Sum(a => a.Code));
+                })
+                .ToArray();
+
+            var totalLines = resultsPerLanguage.Sum(o => o.Blank + o.Code + o.Comment);
+            var totalFiles = resultsPerLanguage.Sum(o => o.Files);
+
+            var dashedLine = new string('-', 85);
+
+            var title = GetTitle(sw.Elapsed.TotalSeconds, totalFiles, totalLines);
+
+            Console.WriteLine(title);
+
+            Console.WriteLine(dashedLine);
+            Console.WriteLine(GetTitleDisplayLine());
+            Console.WriteLine(dashedLine);
+
+            foreach (var result in resultsPerLanguage.OrderByDescending(o => o.Code))
+            {
+                Console.WriteLine(GetDisplayLine(result));
+            }
+
+            Console.WriteLine(dashedLine);
+            Console.WriteLine(GetDisplayLine(resultsPerLanguage.Aggregate(
+                new OutputModel("Total", 0, 0, 0, 0),
+                (model, item) => {
+                    model.Comment += item.Comment;
+                    model.Files += item.Files;
+                    model.Blank += item.Blank;
+                    model.Code += item.Code;
+
+                    return model;
+                })));
+            Console.WriteLine(dashedLine);
+        }
+
+        private static ParallelQuery<FileInfo> GetFileInfo(string path)
+        {
+            Arg.NotNullOrWhitespace(path, nameof(path));
+
+            var files = Directory.Exists(path) ?
+                Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories) :
+                File.Exists(path)
+                    ? new[] {path}
+                    : throw new InvalidOperationException("Invalid Path");
+
+            return files
                 .AsParallel()
                 .AsUnordered()
                 .Where(file => !IgnoredFilePaths.Any(file.Contains))
                 .Where(file => !IgnoredFiles.Any(ig => file.EndsWith(ig, StringComparison.OrdinalIgnoreCase)))
-                .Select(LocService.GetFileInfo)
-                .ToArray()
-                .GroupBy(g => g.Language)
-                .ToDictionary(d => d.Key, b =>
-                {
-                    var arr = b.ToArray();
+                .Select(LocService.GetFileInfo);
+        }
 
-                    return new
-                    {
-                        Files = arr.Length,
-                        Blank = arr.Sum(a => a.Blank),
-                        Comment = arr.Sum(a => a.Comment),
-                        Code = arr.Sum(a => a.Code)
-                    };
-                });
+        private static string GetTitle(double elapsedSeconds, int totalFiles, int totalLines)
+        {
+            var fps = Math.Round(totalFiles / elapsedSeconds, 2);
+            var lps = Math.Round(totalLines / elapsedSeconds, 2);
 
-            var totalLines = loc.Sum(o => o.Value.Blank + o.Value.Code + o.Value.Comment);
-            var elapsedSeconds = sw.Elapsed.TotalSeconds;
-            Console.WriteLine($"{totalLines} in {elapsedSeconds} s. ({totalLines / (double) elapsedSeconds} lines per sec) ");
+            return $"github.com/asadcr/LocSharp v1.00  T={Math.Round(elapsedSeconds, 2)}s ({fps} files/s, {lps} lines/s)";
+        }
 
-            foreach (var (language, value) in loc.OrderByDescending(o => o.Value.Code))
-            {
-                var someString = new StringBuilder(new string(' ', 30), 30);
-                language.ForEach((l, i) => someString[i] = l);
+        private static string GetDisplayLine(OutputModel model)
+        {
+            var sb = new StringBuilder();
+            sb.Append(model.Language.ToFixedLength(25));
+            sb.Append(model.Files.ToString().ToFixedLength(15, true));
+            sb.Append(model.Blank.ToString().ToFixedLength(15, true));
+            sb.Append(model.Comment.ToString().ToFixedLength(15, true));
+            sb.Append(model.Code.ToString().ToFixedLength(15, true));
 
-                Console.WriteLine($"{someString}\t{value.Files}\t\t{value.Blank}\t\t{value.Comment}\t\t{value.Code}");
-            }
+            return sb.ToString();
+        }
 
-            Console.ReadLine();
+        private static string GetTitleDisplayLine()
+        {
+            return nameof(OutputModel.Language).ToFixedLength(25) +
+                   nameof(OutputModel.Files).ToFixedLength(15, true) +
+                   nameof(OutputModel.Blank).ToFixedLength(15, true) +
+                   nameof(OutputModel.Comment).ToFixedLength(15, true) +
+                   nameof(OutputModel.Code).ToFixedLength(15, true);
         }
     }
 }

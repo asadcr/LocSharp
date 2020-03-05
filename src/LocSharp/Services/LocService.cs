@@ -30,7 +30,8 @@
                 .GroupBy(g => g)
                 .ToDictionary(a => a.Key, b => b.Count());
 
-            return new FileInfo(definition.Name,
+            return new FileInfo(filePath,
+                definition.Name,
                 classification.GetValueOrDefault(LineType.Blank),
                 classification.GetValueOrDefault(LineType.Comment),
                 classification.GetValueOrDefault(LineType.Code));

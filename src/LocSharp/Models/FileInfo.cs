@@ -4,13 +4,16 @@
 
     public class FileInfo
     {
-        public FileInfo(string languageName, int blankLines, int commentLines, int codeLines)
+        public FileInfo(string filePath, string languageName, int blankLines, int commentLines, int codeLines)
         {
-            Language = Arg.NotNull(languageName, nameof(languageName));
+            FilePath = Arg.NotNullOrWhitespace(filePath, nameof(filePath));
+            Language = Arg.NotNullOrWhitespace(languageName, nameof(languageName));
             Blank = blankLines;
             Comment = commentLines;
             Code = codeLines;
         }
+
+        public string FilePath { get; }
 
         public string Language { get; }
 

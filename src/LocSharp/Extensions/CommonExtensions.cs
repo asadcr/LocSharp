@@ -3,8 +3,10 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
     using Models;
+    using MoreLinq.Extensions;
     using Utils;
 
     public static class CommonExtensions
@@ -58,6 +60,14 @@
             return dict.TryGetValue(key, out var value)
                 ? value
                 : dict[key] = valueFactory(key);
+        }
+
+        public static string ToFixedLength(this string value, int len, bool alignRight = false)
+        {
+            var sb = new StringBuilder(new string(' ', len), len);
+            value.ForEach((l, i) => sb[alignRight ? sb.Length - value.Length + i : i] = l);
+
+            return sb.ToString();
         }
     }
 }
