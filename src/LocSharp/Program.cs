@@ -28,7 +28,7 @@
             "browserslist", "png", "jpg"
         };
 
-        private const string RepoPath = "C:\\Users\\Asad\\Documents\\Visual Studio 2017\\Projects\\CAFlow\\src\\CAFlow.Core.Tests\\TestData\\Fixtures\\JFlexLexer.java";
+        private const string RepoPath = "C:\\CAFlowRepos\\esw-ai\\CAFlow_70e2a52d145b84149e2c846971a38646ffd19bc7\\src\\CAFlow.Core.Tests\\TestData\\Fixtures\\JFlexLexer.java";
 
         public static void Main(string[] args)
         {

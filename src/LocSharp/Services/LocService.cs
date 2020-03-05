@@ -135,7 +135,7 @@
         /// <returns>list</returns>
         private static string CleanLine(string line)
         {
-            return line.Replace(SingleQuoteRegex).Replace(DoubleQuoteRegex);
+            return line.Trim().Replace(SingleQuoteRegex, "-").Replace(DoubleQuoteRegex, "-");
         }
 
         private static IReadOnlyDictionary<string, LanguageDefinition> FetchLanguageDefinitions()
