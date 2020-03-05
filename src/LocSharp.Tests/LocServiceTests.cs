@@ -7,7 +7,7 @@ namespace LocSharp.Tests
     public class LocServiceTests
     {
         [Theory]
-        [InlineData("C.c", 677, 449, 2494)]
+        [InlineData("C.c", 695, 327, 2598)]
         [InlineData("C2.c", 38, 68, 539)]
         [InlineData("CSharp.cs", 30, 25, 134)]
         //[InlineData("Go.txt", "go", 1, 1, 1)]

@@ -14,9 +14,9 @@
     public static class LocService
     {
         private const string Dash = "-";
+        private const char SingleQuote = '\'';
+        private const char DoubleQuote = '"';
 
-        private static readonly Regex DoubleQuoteRegex = new Regex("\".*?\"", RegexOptions.Compiled);
-        private static readonly Regex SingleQuoteRegex = new Regex("'.*?'", RegexOptions.Compiled);
         private static readonly IReadOnlyDictionary<string, LanguageDefinition> LanguageDefinitionsByExtension = FetchLanguageDefinitions();
 
         public static FileInfo GetFileInfo(string filePath)
@@ -58,7 +58,7 @@
 
                 while (enumerator.MoveNext())
                 {
-                    var currentLine = CleanLine(enumerator.Current);
+                    var currentLine = string.Concat(CleanLine(enumerator.Current));
 
                     if (string.IsNullOrWhiteSpace(currentLine))
                     {
@@ -103,7 +103,7 @@
                     while (!multiLineRegex.IsMatch(mergedLines) && enumerator.MoveNext())
                     {
                         // Always Clean the Line for accuracy.
-                        var cleaned = CleanLine(enumerator.Current);
+                        var cleaned = string.Concat(CleanLine(enumerator.Current).ToArray());
                         mergedLines = string.Join(Environment.NewLine, mergedLines, cleaned);
                     }
 
@@ -133,9 +133,60 @@
         /// </summary>
         /// <param name="line">code line</param>
         /// <returns>list</returns>
-        private static string CleanLine(string line)
+        private static IEnumerable<char> CleanLine(string line)
         {
-            return line.Trim().Replace(SingleQuoteRegex, "-").Replace(DoubleQuoteRegex, "-");
+            IEnumerator<char> enumerator = line.GetEnumerator();
+
+            while (enumerator.MoveNext())
+            {
+                var currentChar = enumerator.Current;
+
+                switch (currentChar)
+                {
+                    case ' ':
+                        continue;
+
+                    case SingleQuote:
+                    {
+                        yield return SingleQuote;
+                        enumerator = GetLastIndex(enumerator, SingleQuote);
+                        yield return SingleQuote;
+                        break;
+                    }
+
+                    case DoubleQuote:
+                    {
+                        yield return DoubleQuote;
+                        enumerator = GetLastIndex(enumerator, DoubleQuote);
+                        yield return DoubleQuote;
+                        break;
+                    }
+
+                    default:
+                        yield return currentChar;
+                        break;
+                }
+            }
+
+            enumerator.Dispose();
+        }
+
+        private static IEnumerator<char> GetLastIndex(IEnumerator<char> enumerator, char quote)
+        {
+            var list = new List<char>();
+
+            while (enumerator.MoveNext())
+            {
+                if (enumerator.Current == quote)
+                {
+                    list.Clear();
+                    continue;
+                }
+
+                list.Add(enumerator.Current);
+            }
+
+            return list.GetEnumerator();
         }
 
         private static IReadOnlyDictionary<string, LanguageDefinition> FetchLanguageDefinitions()
