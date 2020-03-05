@@ -15,6 +15,7 @@ namespace LocSharp.Tests
         [InlineData("Java.java",  46, 108, 256)]
         [InlineData("Java2.java", 9, 38, 33)]
         [InlineData("Java3.java", 6, 3, 152)]
+        [InlineData("JFlexLexer.java", 80, 127, 275)]
         [InlineData("JavaScript.js", 35, 13, 370)]
         //[InlineData("MatLab.txt", "m", 1, 1, 1)]
         //[InlineData("PHP.txt", "php", 1, 1, 1)]
